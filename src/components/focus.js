@@ -14,19 +14,15 @@ export const Focus = ({addSubject}) => {
             <Button title="Add" color="#2E8B57" onPress = {()=>addSubject(subject)} />
         </View>
     </View>
-    
-    
   </View>)
 }
 const styles = StyleSheet.create({
   container:{
-    flex:1,
   },
   inputContainer:{
     padding: spacing.lg,
   },
   textInput:{
-    flex:1,
     marginRight:spacing.sm
   }
 })

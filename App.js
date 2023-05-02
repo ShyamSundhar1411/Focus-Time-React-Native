@@ -3,17 +3,25 @@ import React,{useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Focus} from './src/components/focus';
 import { Countdown } from './src/components/countdown';
+import { FocusHistory } from './src/components/focushistory';
 import {Timer} from  './src/components/Timer';
 
 export default function App() {
-  const [currentSubject,addCurrentSubject] = useState(null);
+  const [currentSubject,setCurrentSubject] = useState(null);
+  const [history,setHistory] = useState(['temp history']);
   return (
     <View style={styles.container}>
-      {!currentSubject ?<Focus addSubject = {addCurrentSubject} />:
+      {!currentSubject ?
+      <>
+        <FocusHistory />
+        <Focus addSubject = {setCurrentSubject} />
+        
+      </>
+      :
       (
         <Timer focusSubject = {currentSubject}
         onTimerEnd={()=>{}}
-        clearSubject={()=>{}} />
+        clearSubject={()=>{setCurrentSubject(null)}} />
       )
       }
     </View>
