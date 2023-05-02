@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {View,Text,StyleSheet,Button} from 'react-native';
+import {View,Text,StyleSheet,Button,FlatList} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {spacing} from '../utils/size';
 
@@ -10,7 +10,7 @@ export const Focus = ({addSubject}) => {
     <View style = {styles.inputContainer} >
       <TextInput styles = {styles.textInput} onChangeText = {setSubject} label = "What would you like to focus on ?" />
       
-        <View style={{ height: 100, marginTop: 10 }}>
+        <View style={{ height: 50, marginTop: 10 }}>
             <Button title="Add" color="#2E8B57" onPress = {()=>addSubject(subject)} />
         </View>
     </View>

@@ -8,19 +8,21 @@ import {Timer} from  './src/components/Timer';
 
 export default function App() {
   const [currentSubject,setCurrentSubject] = useState(null);
-  const [history,setHistory] = useState(['temp history']);
+  const [history,setHistory] = useState([]);
   return (
     <View style={styles.container}>
       {!currentSubject ?
       <>
-        <FocusHistory />
         <Focus addSubject = {setCurrentSubject} />
+        <FocusHistory history={history}/>
         
       </>
       :
       (
         <Timer focusSubject = {currentSubject}
-        onTimerEnd={()=>{}}
+        onTimerEnd={(subject)=>{
+          setHistory([...history,subject]);
+        }}
         clearSubject={()=>{setCurrentSubject(null)}} />
       )
       }
